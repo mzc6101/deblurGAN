@@ -3,6 +3,7 @@
 ## Introduction
 
 Deblur-GAN is a deep learning model designed to restore sharpness to blurry images. In this README, I will guide you through setting up the environment, training the model, and using it for image deblurring. Additionally, I’ll discuss the modifications I made, including gradient accumulation for machines with lower resources, and the lessons learned throughout this process.
+This project takes inspiration from the paper https://arxiv.org/pdf/1711.07064 . The AI is used in a iOS app on testflight I created that uses a captured image and runs the image through this model to deblur any blurry image.
 
 ## Setup
 
@@ -18,11 +19,14 @@ Ensure you have the following installed:
 - Pillow
 - tqdm
 
-You can install the necessary packages using pip:
+You can install the necessary packages using pip with the setup.py in this project:
 
 ```bash
-pip install tensorflow keras click numpy pillow tqdm
-```
+virtualenv venv -p python3
+. venv/bin/activate
+pip install -r requirements/requirements.txt
+pip install -e .
+``` 
 
 ### Project Structure
 
@@ -200,3 +204,7 @@ Throughout this project, I encountered several challenges and made various modif
 4. **Performance Comparison**: By training multiple models with different configurations, I was able to compare their performance and select the best-performing model for inference.
 
 5. **Customizing the Training and Testing Scripts**: I customized the training and testing scripts to suit my specific requirements, including saving the best models and generating clear images for validation.
+
+## Understanding the Dataset
+
+The original Deblur-GAN project, which I used as a reference, provided a solid foundation for this work. The project utilized the GOPRO_Large training dataset, known for its extensive collection of paired blurry and sharp images. I also incorporated my dataset into the training process to enhance the model’s robustness. However, due to privacy concerns, I have only committed the GOPRO_Large dataset from the original project. Throughout the implementation, I faced several issues, including memory limitations and process constraints, which led me to explore and implement techniques like gradient accumulation to ensure successful training on my hardware setup.
