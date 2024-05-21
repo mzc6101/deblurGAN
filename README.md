@@ -1,4 +1,4 @@
-# Deblur-GAN Setup and Implementation
+# Deblur-GAN - Manav Chordia
 
 ## Introduction
 
