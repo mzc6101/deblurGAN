@@ -19,7 +19,7 @@ Ensure you have the following installed:
 - Pillow
 - tqdm
 
-You can install the necessary packages using pip with the setup.py in this project:
+You can install the necessary packages by ey entering a virtual environment and installing the requirements listed in setup.py:
 
 ```bash
 virtualenv venv -p python3
